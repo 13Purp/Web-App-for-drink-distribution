@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/dodavanjeProizvoda.js"></script>
+
+    
+    <title>DODAVANJE PROIZVODA</title>
+
+<style>
+    .btn-secondary {
+        background-color: transparent; /* Make background transparent */
+        border: none; /* Remove border */
+        padding: 0; /* Remove padding */
+    }
+    .navbar-brand img {
+            width: 100%; /* Make image fill up the button */
+        }
+        body {
+  position: relative;
+  
+
+  
+}
+.my-custom-scrollbar {
+position: relative;
+height: 200px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+
+
+
+</style>
+</head>
+<body >
+    <div class="row fixed-top shadow ">
+       <nav class="navbar navbar-expand-md bg-light navbar-light">
+            <!-- Brand -->
+            <div class="dropdown open col align-self-start">
+                <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="triggerId"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    <img src="{% static 'slike/nav.png' %}" alt="Slika" style="width: 40px; height: auto; margin-left: 20%;">
+                </button>
+               
+                <div class="dropdown-menu" aria-labelledby="triggerId">
+                    <a href="/indexS/" class="nav-link p-0 text-muted dropdown-item">Glavna stranica</a>
+                    <a href="/katalogS/" class="nav-link p-0 text-muted dropdown-item">Katalog</a>
+                    <a href="/registracijaS/" class="nav-link p-0 text-muted dropdown-item">Registracija</a>
+                    <a href="/nalogS/" class="nav-link p-0 text-muted dropdown-item">Nalog</a>
+                    <a href="/korpaS/" class="nav-link p-0 text-muted dropdown-item">Korpa</a>
+                </div>
+                <a id="logIn" href="/loginS/" style="color: #C20407; text-decoration: none;">Log in</a>
+                <button id="logOut" style="color: #C20407; text-decoration: none; border: none;background-color: #F8F9FA;" hidden>Log out</button>
+            </div>
+            <div class="navbar-brand col align-self-center d-flex justify-content-center">
+                <a href="/indexS/" style="color: #C20407; text-decoration: none;">
+                   &emsp;&emsp;&emsp; Bambus
+                </a>
+            </div>
+            <form class="container-sm d-md-flex col align-self-end justify-content-end" action="/action_page.php">
+                <input class="form-control mr-sm-2 rounded-pill" id="nazivPretrage" type="text" placeholder="Search" style="width: fit-content; padding-left: 5%;">
+                <a class="btn"  id="pretraga">
+                    <img src="{% static 'slike/luoa.png' %}" alt="Slika" style="min-height: auto; width: auto; height: auto;">
+                </a>
+                <a class="btn" href="/korpaS/">
+                    <img src="{% static 'slike/kesa2.png' %}" alt="Slika" style="min-height: auto; width: auto; height: auto;">
+                </a>
+            </form>
+        </nav>
+    </div>
+
+
+    <br><br><br><br>
+
+<div class="row ps-5 mt-1 mb-4">
+    <p style="font-size: xx-large; font-weight: bolder;">Artikli:</p>
+</div>
+
+
+<form class="row g-3 w-100 ps-5">
+    
+        {% csrf_token %}
+    
+    <div class="col-md-12 col-lg-12">
+      <label for="fSifra" class="form-label">Šifra Artikla</label>
+      <input type="text" class="form-control" id="fSifra" value="" >
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <label for="fNaziv" class="form-label">Naziv Artikla</label>
+      <input type="text" class="form-control" id="fNaziv" value="" >
+    </div>
+    <div class="col-md-11 col-lg-11 col-sm-11">
+        
+       
+
+      </div>
+    <div class="col-md-12 col-lg-12">
+
+        <label for="fCena" class="form-label">Cena Artikla</label>
+        <input type="text" class="form-control" id="fCena" value="" >
+      </div>
+
+
+    <div class="col-md-12 col-lg-12">
+      <label for="fStanje" class="form-label">Stanje Artikla</label>
+      <input type="text" class="form-control" id="fStanje" value="" >
+      
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="cGazirano" name="option1" value="something" checked>
+      <label class="form-check-label">Gazirano</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="csAlk" name="option1" value="something" checked>
+      <label class="form-check-label">Sadrzi Alkohol</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="cUvoz" name="option1" value="something" checked>
+      <label class="form-check-label">Uvoz</label>
+    </div>
+    
+    <div class="col-md-12 col-lg-12 col-sm-12">
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Slika Artikla</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+        
+        
+
+      </div>
+ 
+      <div class="col-md-11 col-lg-11 col-sm-11">
+        
+        <a class="btn btn-link m-0 pt-0 h-100 w-100" >
+            <button class="btn  " id="dodajArtikl"  style=" background-color: #8b0204; height: 75%; width: 75%;  ">
+            <p style="color: whitesmoke; font-size: large; font-weight: bold;">Dodaj Artikl</p>
+        </button></a>
+
+      </div>
+      
+</form>
+
+<div class="row">
+
+    <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+        
+        <a class="navbar-brand" href="#">Artikli</a>
+        <ul class="nav nav-pills">
+        <input id="search" class="form-control mr-sm-2 rounded-pill" type="text" placeholder="Search" style="width: fit-content;">
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color: #C20407;">Sort</a>
+            <ul class="dropdown-menu">
+              <li><a id="cRast" class="dropdown-item" >Cena Rastuće</a></li>
+              <li><a id="cOpad" class="dropdown-item">Cena Opadajuće</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a id="nRast" class="dropdown-item" >Naziv Rastuće</a></li>
+              <li><a id="nOpad" class="dropdown-item" >Naziv Opadajuće</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color: #C20407;">Filter</a>
+            <ul class="dropdown-menu">
+                
+                <li><a id="bez" class="dropdown-item" >Bez Filtera</a></li>
+                <li><hr class="dropdown-divider"></li>
+              <li><a id="voda" class="dropdown-item" >Voda</a></li>
+              <li><a  id="sok" class="dropdown-item" >Sokovi</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a  id="gazirano" class="dropdown-item" >Gazirano</a></li>
+              <li><a  id="sAlk" class="dropdown-item" >Sadrži Alkohol</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a  id="uvoz" class="dropdown-item" >Uvoz</a></li>
+              <li><a  id="dProizvod" class="dropdown-item" >Domaći Proizvod</a></li>
+
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+</div>
+
+<div class="row">
+    {% csrf_token %}
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+        <table class="table table-bordered table-striped mb-0">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Sifra</th>
+              <th scope="col">Naziv</th>
+              <th scope="col">Cena</th>
+              <th scope="col">Stanje</th>
+              <th scope="col"></th>
+
+
+            </tr>
+          </thead>
+          <tbody id="proizvodi">
+            
+          
+          
+          </tbody>
+        </table>
+        <div  style="display:none" id="jsonProizvodi" data-json="{{ proizvodi }}">{{ proizvodi }}</div>
+        
+      
+      </div>
+</div>
+
+
+<div class="row">
+
+    <a href="#" class="btn btn-link m-4 pt-5 h-100 w-100" >
+        <button class="btn  " type="submit" style=" background-color: #C20407; height: 100%; width: 75%;  ">
+        <p style="color: whitesmoke; font-size: large; font-weight: bold;">Završi izmene</p>
+    </button></a>
+   
+
+</div>
+
+    <div class="row" style="background-color: #696969;" > </div>
+    <div class="row"></div>
+    <div class="row">
+        <span style="background-color: rgb(51, 51, 51);">
+            <div class="container">
+                  <footer class="row row-cols-5 py-5 my-5 border-top">
+                    <div class="col">
+                        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none"></a>
+                        <p class="text-muted">© 2024</p>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col">
+                        <h5 style="color: rgb(211, 211, 211);">Linkovi</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="/indexS/" class="nav-link p-0 text-muted">Glavna stranica</a></li>
+                            <li class="nav-item mb-2"><a href="/katalogS/" class="nav-link p-0 text-muted">Katalog</a></li>
+                            <li class="nav-item mb-2"><a href="/registracijaS/" class="nav-link p-0 text-muted">Registracija</a></li>
+                            <li class="nav-item mb-2"><a href="/nalogS/" class="nav-link p-0 text-muted">Nalog</a></li>
+                            <li class="nav-item mb-2"><a href="/korpaS/" class="nav-link p-0 text-muted">Korpa</a></li>
+                            <li class="nav-item mb-2"><a href="/adminStranica/" class="nav-link p-0 text-muted">Admin</a></li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+        </span>
+    </div>
+
+<script>
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  target: '#navbar-example3'
+})
+</script>
+</body>
+</html>

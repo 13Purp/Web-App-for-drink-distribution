@@ -1,0 +1,302 @@
+<!-- Ilija Jakovljevic 0542/21-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <title>Document</title>
+
+<style>
+    .btn-secondary {
+        background-color: transparent; /* Make background transparent */
+        border: none; /* Remove border */
+        padding: 0; /* Remove padding */
+    }
+    .navbar-brand img {
+            width: 100%; /* Make image fill up the button */
+        }
+        body {
+  position: relative;
+  
+
+  
+}
+.my-custom-scrollbar {
+position: relative;
+height: 200px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+
+
+
+</style>
+</head>
+<body >
+    <div class="row fixed-top shadow ">
+      <nav class="navbar navbar-expand-md bg-light navbar-dark">
+        <!-- Brand -->
+        <div class="dropdown open col align-self-start">
+            <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="triggerId"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+                <img src="nav.png" alt="Slika" style="width: 40px; height: auto; margin-left: 20%;">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="triggerId">
+                <a href="index.html" class="nav-link p-0 text-muted dropdown-item">Glavna stranica</a>
+                <a href="katalog.html" class="nav-link p-0 text-muted dropdown-item">Katalog</a>
+                <a href="registracija.html" class="nav-link p-0 text-muted dropdown-item">Registracija</a>
+                <a href="nalog.html" class="nav-link p-0 text-muted dropdown-item">Nalog</a>
+                <a href="korpa.html" class="nav-link p-0 text-muted dropdown-item">Korpa</a>
+            </div>
+            <a href="login.html" style="color: #C20407; text-decoration: none;">Log in</a>
+        </div>
+        <div class="navbar-brand col align-self-center d-flex justify-content-center">
+            <a href="#" style="color: #C20407; text-decoration: none;">
+               &emsp;&emsp;&emsp; Bambus
+            </a>
+        </div>
+        <form class="container-sm d-md-flex col align-self-end justify-content-end" action="/action_page.php">
+            <input class="input mr-sm-2 rounded-pill" type="text" placeholder="Search" style="width: fit-content; padding-left: 5%;">
+            <a class="btn" href="katalog.html">
+                <img src="luoa.png" alt="Slika" style="min-height: auto; width: auto; height: auto;">
+            </a>
+            <a class="btn" href="korpa.html">
+                <img src="kesa2.png" alt="Slika" style="min-height: auto; width: auto; height: auto;">
+            </a>
+        </form>
+    </nav>
+    </div>
+
+
+    <br><br><br><br>
+
+<div class="row ps-5 mt-1 mb-4">
+    <p style="font-size: xx-large; font-weight: bolder;">Artikli:</p>
+</div>
+
+
+<form class="row g-3 w-100 ps-5">
+    <div class="col-md-12 col-lg-12">
+      <label for="validationDefault01" class="form-label">Šifra Artikla</label>
+      <input type="text" class="form-control" id="validationDefault01" value="" >
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <label for="validationDefault02" class="form-label">Naziv Artikla</label>
+      <input type="text" class="form-control" id="validationDefault02" value="" >
+    </div>
+    <div class="col-md-11 col-lg-11 col-sm-11">
+        
+       
+
+      </div>
+    <div class="col-md-12 col-lg-12">
+
+        <label for="validationDefault02" class="form-label">Cena Artikla</label>
+        <input type="text" class="form-control" id="validationDefault02" value="" >
+      </div>
+
+
+    <div class="col-md-12 col-lg-12">
+      <label for="validationDefault03" class="form-label">Stanje Artikla</label>
+      <input type="text" class="form-control" id="validationDefault03" value="" >
+      
+    </div>
+    <div class="col-md-12 col-lg-12 col-sm-12">
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Slika Artikla</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+        
+        
+
+      </div>
+ 
+      <div class="col-md-11 col-lg-11 col-sm-11">
+        
+        <a href="#" class="btn btn-link m-0 pt-0 h-100 w-100" >
+            <button class="btn  " type="submit" style=" background-color: #8b0204; height: 75%; width: 75%;  ">
+            <p style="color: whitesmoke; font-size: large; font-weight: bold;">Dodaj Artikl</p>
+        </button></a>
+
+      </div>
+      
+</form>
+
+<div class="row">
+
+    <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+        
+        <a class="navbar-brand" href="#">Artikli</a>
+        <ul class="nav nav-pills">
+        <input class="form-control mr-sm-2 rounded-pill" type="text" placeholder="Search" style="width: fit-content;">
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color: #C20407;">Sort</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" >Cena Rastuće</a></li>
+              <li><a class="dropdown-item">Cena Opadajuće</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" >Naziv Rastuće</a></li>
+              <li><a class="dropdown-item" >Naziv Opadajuće</a></li>
+
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color: #C20407;">Filter</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" >Voda</a></li>
+              <li><a class="dropdown-item" >Sokovi</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" >Gazirano</a></li>
+              <li><a class="dropdown-item" >Sadrži Alkohol</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" >Uvoz</a></li>
+              <li><a class="dropdown-item" >Domaći Proizvod</a></li>
+
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+</div>
+
+<div class="row">
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+
+        <table class="table table-bordered table-striped mb-0">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Sifra</th>
+              <th scope="col">Naziv</th>
+              <th scope="col">Cena</th>
+              <th scope="col">Stanje</th>
+              <th scope="col"></th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>1234</td>
+              <td>Koka kola 0.5L</td>
+              <td>115,99din</td>
+              <td>1205</td>
+              <td class="text-center" ><button style="background-color: transparent; border: transparent; text-decoration: underline;" >Obriši</button></td>
+
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>1234</td>
+                <td>Koka kola 1.5L</td>
+                <td>115,99din</td>
+                <td>5125</td>
+                <td class="text-center" ><button style="background-color: transparent; border: transparent; text-decoration: underline;" >Obriši</button></td>
+
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>1235</td>
+                <td>Koka kola 1L</td>
+                <td>115,99din</td>
+                <td>1125</td>
+                <td class="text-center" ><button style="background-color: transparent; border: transparent; text-decoration: underline;" >Obriši</button></td>
+
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>1236</td>
+                <td>Koka kola 0.33L</td>
+                <td>115,99din</td>
+                <td>1225</td>
+                <td class="text-center" ><button style="background-color: transparent; border: transparent; text-decoration: underline;" >Obriši</button></td>
+
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>1237</td>
+                <td>Koka kola 2L</td>
+                <td>115,99din</td>
+                <td>1253</td>
+                <td class="text-center" ><button style="background-color: transparent; border: transparent; text-decoration: underline;" >Obriši</button></td>
+
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>1238</td>
+                <td>Koka kola 5L</td>
+                <td>115,99din</td>
+                <td>0</td>
+                <td class="text-center" ><button style="background-color: transparent; border: transparent; text-decoration: underline;" >Obriši</button></td>
+
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
+</div>
+
+
+<div class="row">
+
+    <a href="#" class="btn btn-link m-4 pt-5 h-100 w-100" >
+        <button class="btn  " type="submit" style=" background-color: #C20407; height: 100%; width: 75%;  ">
+        <p style="color: whitesmoke; font-size: large; font-weight: bold;">Završi izmene</p>
+    </button></a>
+   
+
+</div>
+
+    <div class="row" style="background-color: #696969;" > </div>
+    <div class="row"></div>
+    <div class="row">
+        <span style="background-color: rgb(51, 51, 51);">
+            <div class="container">
+                <footer class="row row-cols-5 py-5 my-5 border-top">
+                    <div class="col">
+                        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                        </a>
+                        <p class="text-muted">© 2024</p>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col">
+                        <h5 style="color: rgb(211, 211, 211);">Linkovi</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-muted">Glavna stranica</a></li>
+                            <li class="nav-item mb-2"><a href="katalog.html" class="nav-link p-0 text-muted">Katalog</a></li>
+                            <li class="nav-item mb-2"><a href="registracija.html" class="nav-link p-0 text-muted">Registracija</a></li>
+                            <li class="nav-item mb-2"><a href="nalog.html" class="nav-link p-0 text-muted">Nalog</a></li>
+                            <li class="nav-item mb-2"><a href="korpa.html" class="nav-link p-0 text-muted">Korpa</a></li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+        </span>
+    </div>
+
+<script>
+    var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  target: '#navbar-example3'
+})
+</script>
+</body>
+</html>

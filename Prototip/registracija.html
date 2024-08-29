@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Registracija</title>
+
+<style>
+    .btn-secondary {
+        background-color: transparent; /* Make background transparent */
+        border: none; /* Remove border */
+        padding: 0; /* Remove padding */
+    }
+    .navbar-brand img {
+        width: 100%; /* Make image fill up the button */
+    }
+</style>
+</head>
+<body>
+    <div class="row fixed-top shadow">
+        <nav class="navbar navbar-expand-md bg-light navbar-dark">
+            <!-- Brand -->
+            <div class="dropdown open col align-self-start">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="nav.png" alt="Slika" style="width: 40px; height: auto; margin-left: 20%;">
+                </button>
+                <div class="dropdown-menu" aria-labelledby="triggerId">
+                    <a href="index.html" class="nav-link p-0 text-muted dropdown-item">Glavna stranica</a>
+                    <a href="katalog.html" class="nav-link p-0 text-muted dropdown-item">Katalog</a>
+                    <a href="registracija.html" class="nav-link p-0 text-muted dropdown-item">Registracija</a>
+                    <a href="nalog.html" class="nav-link p-0 text-muted dropdown-item">Nalog</a>
+                    <a href="korpa.html" class="nav-link p-0 text-muted dropdown-item">Korpa</a>
+                </div>
+                <a href="login.html" style="color: #C20407; text-decoration: none;">Log in</a>
+            </div>
+            <div class="navbar-brand col align-self-center d-flex justify-content-center">
+                <a href="#" style="color: #C20407; text-decoration: none;">
+                   &emsp;&emsp;&emsp; Bambus
+                </a>
+            </div>
+            <form class="container-sm d-md-flex col align-self-end justify-content-end" action="/action_page.php">
+                <input class="input mr-sm-2 rounded-pill" type="text" placeholder="Search" style="width: fit-content; padding-left: 5%;">
+                <a class="btn" href="katalog.html">
+                    <img src="luoa.png" alt="Slika" style="min-height: auto; width: auto; height: auto;">
+                </a>
+                <a class="btn" href="korpa.html">
+                    <img src="kesa2.png" alt="Slika" style="min-height: auto; width: auto; height: auto;">
+                </a>
+            </form>
+        </nav>
+    </div>
+
+    <br><br><br><br>
+    <br><br>
+
+    <form class="row g-3 w-75 ps-5">
+        <div class="col-md-4 col-lg-3">
+            <label for="validationDefault01" class="form-label">Ime</label>
+            <input type="text" class="form-control" id="validationDefault01" value="" required>
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <label for="validationDefault02" class="form-label">Prezime</label>
+            <input type="text" class="form-control" id="validationDefault02" value="" required>
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <label for="validationDefault02" class="form-label">Broj Telefona</label>
+            <input type="text" class="form-control" id="validationDefault02" value="" required>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <label for="validationDefault03" class="form-label">Grad</label>
+            <input type="text" class="form-control" id="validationDefault03" required>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <label for="validationDefault04" class="form-label">Adresa</label>
+            <input type="text" class="form-control" id="validationDefault03" required>
+        </div>
+        <div class="col-md-3 col-lg-3">
+            <label for="validationDefault05" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="validationDefault05" required>
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <label for="validationDefault06" class="form-label">eMail</label>
+            <input type="text" class="form-control" id="validationDefault05" required>
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <label for="validationDefault06" class="form-label">Šifra</label>
+            <input type="text" class="form-control" id="validationDefault05" required>
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <label for="validationDefault06" class="form-label">PIB</label>
+            <input type="text" class="form-control" id="pib">
+        </div>
+        <div class="col-12 col-lg-5">
+        </div>
+        <div class="col-12 col-lg-5">
+            <input type="radio" name="lice" id="fizickoLice" required>
+            <label for="fizickoLice">Fizičko Lice</label>
+            &emsp; 
+            <input type="radio" name="lice" id="pravnoLice" required>
+            <label for="pravnoLice">Pravno Lice</label>
+        </div>
+    </form>
+
+    <div class="row justify-content-center">
+        <div class="alert-danger" id="unesiSvePodatke" style="width: 30%;text-align: center;font-weight: bold;" hidden>Nisu uneti svi podaci!</div>
+        <div class="alert-danger" id="losFormatSifre" style="width: 30%;text-align: center;font-weight:bold;" hidden>Format lozinke nije dobar!</div>
+        <div class="alert-danger" id="postojiKorisnik" style="width: 30%;text-align: center;font-weight:bold;" hidden>Postoji korisnik sa unetim podacima!</div>
+    </div>
+
+    <div class="row">
+        <a href="#" class="btn btn-link m-4 p-0 h-100 w-100">
+            <button class="btn" type="submit" style=" background-color: #C20407; height: 100%; width: 75%;">
+                <p style="color: whitesmoke; font-size: large; font-weight: bold;">Registruj se!</p>
+            </button>
+        </a>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="row" style="background-color: #696969;"></div>
+    <div class="row">
+        <span style="background-color: rgb(51, 51, 51);">
+            <div class="container w-100" style="width: 100%;">
+                <footer class="row row-cols-5 py-5 my-5 border-top">
+                    <div class="col">
+                        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                        </a>
+                        <p class="text-muted">© 2024</p>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col">
+                        <h5 style="color: rgb(211, 211, 211);">Linkovi</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-muted">Glavna stranica</a></li>
+                            <li class="nav-item mb-2"><a href="katalog.html" class="nav-link p-0 text-muted">Katalog</a></li>
+                            <li class="nav-item mb-2"><a href="registracija.html" class="nav-link p-0 text-muted">Registracija</a></li>
+                            <li class="nav-item mb-2"><a href="nalog.html" class="nav-link p-0 text-muted">Nalog</a></li>
+                            <li class="nav-item mb-2"><a href="korpa.html" class="nav-link p-0 text-muted">Korpa</a></li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+        </span>
+    </div>
+
+    
+</body>
+</html>
